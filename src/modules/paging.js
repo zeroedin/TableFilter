@@ -368,6 +368,7 @@ export class Paging extends Feature {
         // Paging drop-down list selector
         if (this.pageSelectorType === SELECT) {
             slcPages = createElm(SELECT);
+            slcPages.setAttribute('aria-label', 'Current page');
             slcPages.className = this.pgSlcCssClass;
             addEvt(slcPages, 'change', evt.slcPagesChange);
         }
