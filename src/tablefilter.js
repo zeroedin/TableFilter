@@ -1205,9 +1205,11 @@ export class TableFilter {
         let externalFltTgtId = this.isExternalFlt() ?
             this.externalFltIds[colIndex] : null;
         let inpType = col === INPUT ? 'text' : 'hidden';
+        let colName = document.getElementsByTagName("th").item(colIndex).textContent;
         let inp = createElm(INPUT,
             ['id', this.buildFilterId(colIndex)],
-            ['type', inpType], ['ct', colIndex]);
+            ['type', inpType], ['ct', colIndex],
+            ['aria-label', 'Filter table by '+colName+' column']);
 
         if (inpType !== 'hidden' && this.watermark) {
             inp.setAttribute('placeholder',
