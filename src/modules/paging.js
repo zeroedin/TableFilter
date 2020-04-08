@@ -657,6 +657,7 @@ export class Paging extends Feature {
 
         let slcR = createElm(SELECT);
         slcR.className = this.resultsSlcCssClass;
+        slcR.setAttribute('aria-label', 'Records per page');
         let slcRText = this.resultsPerPage[0],
             slcROpts = this.resultsPerPage[1];
         let slcRSpan = createElm('span');
