@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "tf-" + ({}[chunkId]||chunkId) + "-" + {"0":"e9d0316c2fa3401a7cae"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "tf-" + ({}[chunkId]||chunkId) + "-" + {"0":"18be8c0ec8b779545fac"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -18056,7 +18056,8 @@ function (_BaseDropdown) {
       var tf = this.tf;
       var col = tf.getFilterType(colIndex);
       var externalFltTgtId = isExternal ? tf.externalFltIds[colIndex] : null;
-      var slc = Object(_dom__WEBPACK_IMPORTED_MODULE_1__["createElm"])(_const__WEBPACK_IMPORTED_MODULE_5__["SELECT"], ['id', tf.buildFilterId(colIndex)], ['ct', colIndex], ['filled', '0']);
+      var colName = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
+      var slc = Object(_dom__WEBPACK_IMPORTED_MODULE_1__["createElm"])(_const__WEBPACK_IMPORTED_MODULE_5__["SELECT"], ['id', tf.buildFilterId(colIndex)], ['ct', colIndex], ['filled', '0'], ['aria-label', 'Filter table by ' + colName + ' column']);
 
       if (col === _const__WEBPACK_IMPORTED_MODULE_5__["MULTIPLE"]) {
         slc.multiple = _const__WEBPACK_IMPORTED_MODULE_5__["MULTIPLE"];
@@ -19177,7 +19178,7 @@ function (_Feature) {
      * @type {String}
      */
 
-    _this.instrText = !Object(_types__WEBPACK_IMPORTED_MODULE_5__["isEmpty"])(f.text) ? f.text : 'Use the filters above each column to filter and limit table ' + 'data. Advanced searches can be performed by using the following ' + 'operators: <br /><b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, ' + '<b>&gt;=</b>, <b>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, ' + '<b>||</b>,<b>&amp;&amp;</b>, <b>[empty]</b>, <b>[nonempty]</b>, ' + '<b>rgx:</b><br/><a href="' + WIKI_URL + '" target="_blank">' + 'Learn more</a><hr/>';
+    _this.instrText = !Object(_types__WEBPACK_IMPORTED_MODULE_5__["isEmpty"])(f.text) ? f.text : 'Use the filters above each column to filter and limit table ' + 'data. Advanced searches can be performed by using the following ' + 'operators: <br /><strong>&lt;</strong>, <strong>&lt;=</strong>, <strong>&gt;</strong>, ' + '<strong>&gt;=</strong>, <strong>=</strong>, <strong>*</strong>, <strong>!</strong>, <strong>{</strong>, <strong>}</strong>, ' + '<strong>||</strong>,<strong>&amp;&amp;</strong>, <strong>[empty]</strong>, <strong>[nonempty]</strong>, ' + '<strong>rgx:</strong><br/><a href="' + WIKI_URL + '" target="_blank">' + 'Learn more</a><hr/>';
     /**
      * Instructions HTML
      * @type {String}
@@ -19231,7 +19232,7 @@ function (_Feature) {
      * @type {String}
      */
 
-    _this.defaultHtml = '<div class="helpFooter"><h4>TableFilter ' + 'v' + tf.version + '</h4>' + '<a href="' + WEBSITE_URL + '" target="_blank">' + WEBSITE_URL + '</a>' + '<br/><span>&copy;2015-' + tf.year + ' Max Guglielmi</span>' + '<div align="center" style="margin-top:8px;">' + '<a href="javascript:void(0);" class="close">Close</a></div></div>';
+    _this.defaultHtml = '<div class="helpFooter"><h4>TableFilter ' + 'v' + tf.version + '</h4>' + '<a href="' + WEBSITE_URL + '" target="_blank">' + WEBSITE_URL + '</a>' + '<br/><span>&copy;2015-' + tf.year + ' Max Guglielmi</span>' + '<div style="text-align: center; margin-top:8px;">' + '<a href="javascript:void(0);" class="close">Close</a></div></div>';
     /**
      * Default position in toolbar ('left'|'center'|'right')
      * @type {String}
@@ -25221,9 +25222,7 @@ function () {
       var col = this.getFilterType(colIndex);
       var externalFltTgtId = this.isExternalFlt() ? this.externalFltIds[colIndex] : null;
       var inpType = col === _const__WEBPACK_IMPORTED_MODULE_25__["INPUT"] ? 'text' : 'hidden';
-      console.log(document.getElementsByTagName("th"));
-      console.log(colIndex);
-      var colName = document.getElementsByTagName("th").item(colIndex).textContent;
+      var colName = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
       var inp = Object(_dom__WEBPACK_IMPORTED_MODULE_1__["createElm"])(_const__WEBPACK_IMPORTED_MODULE_25__["INPUT"], ['id', this.buildFilterId(colIndex)], ['type', inpType], ['ct', colIndex], ['aria-label', 'Filter table by ' + colName + ' column']);
 
       if (inpType !== 'hidden' && this.watermark) {

@@ -458,6 +458,9 @@
         btn_reset: true,
         loader: true,
         status_bar: true,
+        help_instructions: {
+          text: '&nbsp;'
+        },
         mark_active_columns: true,
         highlight_keywords: true,
         col_types: [
@@ -486,7 +489,15 @@
     };
 
     var tf = new TableFilter('demo', filtersConfig);
+
+    tf.emitter.on(['after-populating-filter'], setAria);
+
     tf.init();
+
+    function setAria(tf, colIndex, filter){
+      var col_name = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
+      filter.setAttribute('aria-label', 'Filter table by '+col_name+' column')
+    }
 
 </script>
 

@@ -278,7 +278,8 @@ export default class AdapterSortableTable extends Feature {
                 if (stt.sortTypes[i] !== null && stt.sortTypes[i] !== 'None') {
                     c.style.cursor = 'pointer';
                     img = createElm('img',
-                        ['src', adpt.imgPath + adpt.imgBlank]);
+                        ['src', adpt.imgPath + adpt.imgBlank],
+                        ['alt', '']);
                     c.appendChild(img);
                     if (stt.sortTypes[i] !== null) {
                         c.setAttribute('_sortType', stt.sortTypes[i]);

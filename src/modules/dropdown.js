@@ -93,10 +93,11 @@ export class Dropdown extends BaseDropdown {
         let col = tf.getFilterType(colIndex);
         let externalFltTgtId = isExternal ?
             tf.externalFltIds[colIndex] : null;
-
+        let colName = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
         let slc = createElm(SELECT,
             ['id', tf.buildFilterId(colIndex)],
-            ['ct', colIndex], ['filled', '0']
+            ['ct', colIndex], ['filled', '0'],
+            ['aria-label', 'Filter table by '+colName+' column']
         );
 
         if (col === MULTIPLE) {

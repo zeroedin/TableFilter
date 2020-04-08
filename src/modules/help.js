@@ -44,10 +44,10 @@ export class Help extends Feature {
         this.instrText = !isEmpty(f.text) ? f.text :
             'Use the filters above each column to filter and limit table ' +
             'data. Advanced searches can be performed by using the following ' +
-            'operators: <br /><b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, ' +
-            '<b>&gt;=</b>, <b>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, ' +
-            '<b>||</b>,<b>&amp;&amp;</b>, <b>[empty]</b>, <b>[nonempty]</b>, ' +
-            '<b>rgx:</b><br/><a href="' + WIKI_URL + '" target="_blank">' +
+            'operators: <br /><strong>&lt;</strong>, <strong>&lt;=</strong>, <strong>&gt;</strong>, ' +
+            '<strong>&gt;=</strong>, <strong>=</strong>, <strong>*</strong>, <strong>!</strong>, <strong>{</strong>, <strong>}</strong>, ' +
+            '<strong>||</strong>,<strong>&amp;&amp;</strong>, <strong>[empty]</strong>, <strong>[nonempty]</strong>, ' +
+            '<strong>rgx:</strong><br/><a href="' + WIKI_URL + '" target="_blank">' +
             'Learn more</a><hr/>';
 
         /**
@@ -106,7 +106,7 @@ export class Help extends Feature {
             'v' + tf.version + '</h4>' + '<a href="' + WEBSITE_URL +
             '" target="_blank">' + WEBSITE_URL + '</a>' +
             '<br/><span>&copy;2015-' + tf.year + ' {AUTHOR}</span>' +
-            '<div align="center" style="margin-top:8px;">' +
+            '<div style="text-align: center; margin-top:8px;">' +
             '<a href="javascript:void(0);" class="close">Close</a></div></div>';
 
         /**
