@@ -93,11 +93,19 @@ export class Dropdown extends BaseDropdown {
         let col = tf.getFilterType(colIndex);
         let externalFltTgtId = isExternal ?
             tf.externalFltIds[colIndex] : null;
-        let colName = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
+        // let colName = document.querySelectorAll('.fltrow ~ tr th')
+        //     .item(colIndex).textContent;
+        let colName = tf.getHeaderElement(colIndex).textContent;
+        let label;
+        if (colName == null){
+            label = 'Filter table column '+colIndex+1;
+        } else {
+            label = 'Filter table '+colName+' column';
+        }
         let slc = createElm(SELECT,
             ['id', tf.buildFilterId(colIndex)],
             ['ct', colIndex], ['filled', '0'],
-            ['aria-label', 'Filter table by '+colName+' column']
+            ['aria-label', label]
         );
 
         if (col === MULTIPLE) {

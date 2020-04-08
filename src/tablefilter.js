@@ -1205,11 +1205,25 @@ export class TableFilter {
         let externalFltTgtId = this.isExternalFlt() ?
             this.externalFltIds[colIndex] : null;
         let inpType = col === INPUT ? 'text' : 'hidden';
-        let colName = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
+        // let colName = document.querySelectorAll(".fltrow ~ tr th").item(colIndex).textContent;
+        let header = this.getHeaderElement(colIndex);
+        let label;
+        if (header != undefined) {
+          let colName = header.textContent;
+          if (colName == null){
+              label = 'Filter table column '+colIndex+1;
+          } else {
+              label = 'Filter table '+colName+' column';
+          }
+        } else {
+            label = 'Filter table column '+colIndex+1;
+        }
+
+
         let inp = createElm(INPUT,
             ['id', this.buildFilterId(colIndex)],
             ['type', inpType], ['ct', colIndex],
-            ['aria-label', 'Filter table by '+colName+' column']);
+            ['aria-label', label]);
 
         if (inpType !== 'hidden' && this.watermark) {
             inp.setAttribute('placeholder',
